@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notasi Gamelan Jawa</title>
+    <style>
+        /* Font and Background */
+        body {
+            font-family: 'Garamond', serif;
+            background-color: #fdf6e3;
+            color: #4f4f4f;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background-color: #6a4e1f;
+            padding: 20px 0;
+            color: white;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+            color: #ffdb58;
+        }
+/* Hero Section */
+section#hero {
+    background: url("Notasi Gamelan bg.webp") no-repeat center center fixed;
+    background-size: cover;
+    padding: 150px 20px;
+    color: white;
+    text-align: center;
+    position: relative; /* To allow positioning of the overlay */
+}
+
+section#hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay with opacity */
+    z-index: 1; /* Ensure overlay is on top of the image */
+}
+
+section#hero h2, section#hero p {
+    position: relative; /* Bring text above the overlay */
+    z-index: 2;
+}
+
+        /* Pencarian */
+        #search-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #search-box {
+            padding: 15px;
+            font-size: 16px;
+            width: 60%;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #fff3e1;
+        }
+
+        #search-box:focus {
+            border-color: #6a4e1f;
+            outline: none;
+        }
+
+        /* Notasi Gamelan Section */
+        section#notasi-list {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #fff8e1;
+        }
+
+        section#notasi-list h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #6a4e1f;
+        }
+
+        section#notasi-list p {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .notasi-item {
+            display: inline-block;
+            width: 80%;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border: 2px solid #6a4e1f;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            overflow-x: auto; /* Enable horizontal scrolling */
+            white-space: nowrap; /* Prevent content from wrapping */
+        }
+
+        .notasi-item h3 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 0;
+        }
+
+        .pdf-viewer {
+            width: 1200px; /* Set width larger than the container to enable horizontal scroll */
+            height: 400px; /* Smaller height */
+            border: none;
+        }
+
+
+        /* Footer */
+        footer {
+            background-color: #6a4e1f;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Responsif untuk layar kecil */
+        @media (max-width: 768px) {
+            .notasi-item {
+                width: 90%;
+            }
+
+            #search-box {
+                width: 80%;
+            }
+
+            .pdf-viewer {
+                width: 1000px; /* Adjust width for mobile */
+                height: 300px; /* Adjust height for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Notasi Gamelan Jawa</h1>
+    <nav>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#notasi-list">Notasi</a></li>
+            <li><a href="#about">Tentang</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section id="hero">
+    <h2>Selamat Datang di Notasi Gamelan Jawa</h2>
+    <p>Temukan harmoni, keindahan, dan kedalaman tradisi Jawa melalui notasi gamelan. <br> Di sini, setiap nada adalah cerita, dan setiap irama adalah napas budaya. Jelajahi, pelajari, dan hayati warisan abadi Gamelan Jawa.</p>
+
+</section>
+<br>
+<!-- Fitur Pencarian -->
+<section id="search-container">
+    <input type="text" id="search-box" placeholder="Cari notasi gamelan..." onkeyup="searchNotations()">
+</section>
+
+<!-- Notasi Gamelan List -->
+<section id="notasi-list">
+    <div class="notasi-item" data-name="Suket Mayang">
+        <h3>Notasi gamelan Gugur gunung Pl. Br.</h3>
+        <p>Notasi gamelan untuk lagu Gugur Gunung yang menggambarkan kegiatan gotong royong dan kerja bakti masyarakat untuk mencapai tujuan bersama. </p>
+       
+
+        
+        <!-- PDF viewer for Suket Mayang -->
+        <iframe class="pdf-viewer" src="notasi gamelan gugur gunung.pdf"></iframe>
+    </div>
+</section>
+<section id="notasi-list">
+    <div class="notasi-item" data-name="Suket Mayang">
+        <h3>Notasi gamelan Ladrang Asmaradana, Sl. M</h3>
+        <p>Tembang asmaradana menceritakan tentang asmara, dimana manusia yang beranjak dewasa kemudian tertarik dengan lawan jenis. </p>
+
+        
+        <!-- PDF viewer for Suket Mayang -->
+        <iframe class="pdf-viewer" src="notasi gamelan asmaradana.pdf"></iframe>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Notasi Gamelan | Hak Cipta Dilindungi</p>
+</footer>
+
+<script>
+    // Fitur Pencarian
+    function searchNotations() {
+        var input, filter, notasiList, items, item, i, txtValue;
+        input = document.getElementById('search-box');
+        filter = input.value.toLowerCase();
+        notasiList = document.getElementById('notasi-list');
+        items = notasiList.getElementsByClassName('notasi-item');
+        
+        for (i = 0; i < items.length; i++) {
+            item = items[i];
+            txtValue = item.textContent || item.innerText;
+            if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                item.style.display = "";
+            } else {
+                item.style.display = "none";
+            }
+        }
+    }
+   
+
+</script>
+
+</body>
+</html>
